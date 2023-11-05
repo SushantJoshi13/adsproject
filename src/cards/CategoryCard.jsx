@@ -12,7 +12,7 @@ const CategoryCard = ({ image, text, nav }) => {
         <img src={image} alt="" className="rounded-2xl" />
       </div>
       <div className="py-7">
-        <p className="text-white font-medium">{text}</p>
+        <p className="text-black font-medium">{text}</p>
       </div>
     </div>
   );

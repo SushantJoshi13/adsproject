@@ -3,16 +3,17 @@ import React from "react";
 // import ContactSection from "./ContactSection";
 import { useNavigate } from "react-router";
 import CategoryCard from "../cards/CategoryCard";
+// import homeImg from "../assets/Images/homeImage.jpg";
 
 const Home = () => {
   const nav = useNavigate();
   return (
     <section className="relative ">
       <div
-        className="relative h-[50vh] bg-cover bg-no-repeat p-6 text-center md:h-[641px] md:bg-cover md:p-12"
-        style={{ backgroundImage: `url(${''})` }}
+        className="relative w-full h-full bg-no-repeat p-6 text-center md:bg-cover md:p-12"
+        style={{ backgroundImage: `url(${""})` }}
       >
-        <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-fixed backdrop-brightness-[40%]"></div>
+        {/* <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-fixed backdrop-brightness-[40%]"></div> */}
       </div>
       <div className="">
         <div className="flex items-center  ">
@@ -35,36 +36,37 @@ const Home = () => {
           </div>
         </div>
         <section className="mx-5 md:mx-20">
-          <div className="relative -top-[100px] flex flex-col gap-11 md:flex-row">
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col gap-11 md:flex-row">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mt-5">
               <div className="card group transform rounded-lg rounded-bl-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
-                <h1 className="pb-4 text-lg font-medium">
-                  Animal Registration
-                </h1>
+                <h1 className="pb-4 text-lg font-medium">One Stop Beauty</h1>
                 <p className="pb-5">
-                  Genuine Breeder Association is a 1 st Organization who
-                  register all types Domestic animals under a same platform for
-                  reference to improve breed standard .
+                  Experience a Beauty Retreat. Everything you need from hair to
+                  skin to fashion, by Indy's best of the best-all at your MDG
+                  Salon.
                 </p>
                 <button className="text-lg font-medium text-main-yellow group-hover:text-white">
                   Read More
                 </button>
               </div>
               <div className="card group transform rounded-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
-                <h1 className="pb-4 text-lg font-medium">Legal Business</h1>
+                <h1 className="pb-4 text-lg font-medium">Branded Products</h1>
                 <p className="pb-5">
-                  Genuine Breeder Association is promote domestic animal
-                  breeding business by guide to breeder by education.
+                  Achieve salon style at home. High quality products. By high
+                  quality companies such as Barva.
                 </p>
                 <button className="text-lg font-medium text-main-yellow group-hover:text-white">
                   Read More
                 </button>
               </div>
               <div className="card group transform rounded-lg rounded-br-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
-                <h1 className="pb-4 text-lg font-medium">Education</h1>
+                <h1 className="pb-4 text-lg font-medium">
+                  Premium Hair Styles
+                </h1>
                 <p className="pb-5">
-                  Genuine Breeder Association Start regularly basis education
-                  Program for Professional and Pet Parents too.
+                  Finally be happy with your hair. Unruly locks. Lifeless
+                  lengths. Platinum blonde. No challenge-for the best hair
+                  stylists in India.
                 </p>
                 <button
                   onClick={() => nav("/education")}
@@ -73,40 +75,27 @@ const Home = () => {
                   Read More
                 </button>
               </div>
-              <div className="card group transform rounded-lg rounded-br-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
-                <h1 className="pb-4 text-lg font-medium">Shows</h1>
-                <p className="pb-5">
-                  Genuine Breeder Association start Breed Shows, Alights Show,
-                  Obedience show, Progeny show for improving Breed standard and
-                  develop interest in animals.
-                </p>
-                <button className="text-lg font-medium text-main-yellow group-hover:text-white">
-                  Read More
-                </button>
-              </div>
             </div>
           </div>
         </section>
-        <section className="my-8">
-          {/* <About /> */}
-        </section>
+        <section className="my-8">{/* <About /> */}</section>
         {/* CATRGORY BANNER  */}
         <section className="mx-5 md:mx-20">
           <div className="my-6 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
             <CategoryCard
-              image={''}
-              text={"Add Animal"}
-            //   nav={"/add-animal"}
+              image={""}
+              text={"Hair Style"}
+              //   nav={"/add-animal"}
             />
             <CategoryCard
-              image={''}
-              text={"Transfer Ownership"}
-            //   nav={"/transfer-owner"}
+              image={""}
+              text={"Facial Treatment"}
+              //   nav={"/transfer-owner"}
             />
             <CategoryCard
-              image={''}
-              text={"Change Pet Name"}
-            //   nav={"/change-name"}
+              image={""}
+              text={"Makeup Appointment"}
+              //   nav={"/change-name"}
             />
             {/* <CategoryCard
               image={TransferOwnerImg}
@@ -122,6 +111,9 @@ const Home = () => {
           <Testimonials />
         </section> */}
         {/* <NewFooter /> */}
+      </div>
+      <div className="flex">
+        <button className="w-1/2 mx-auto" onClick={() => nav("/appointment")}>{"Book your Appointment"}</button>
       </div>
     </section>
   );
