@@ -1,5 +1,6 @@
 import InputComponent from "../components/InputComponent";
 import { useFormik } from "formik";
+import * as yup from "yup";
 
 const AppointmentPage = () => {
   const validationSchema = yup.object({

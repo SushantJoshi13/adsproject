@@ -11,12 +11,11 @@ export const RegisterValidation = Yup.object({
   confirm_password: Yup.string("Confirm your password")
     .min(8, "Password should be of atleast 8 characters length")
     .required("Password is required")
-    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
-  contact_no: Yup.string("Enter your Contact Number")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+  contact_number: Yup.string("Enter your Contact Number")
     .min(10, "10 Digit number please")
     .max(10, "10 Digit number please")
     .required("Contact Number is required"),
-  isFemale: Yup.boolean(),
   first_name: Yup.string("Enter your First Name").required(
     "First name is required"
   ),

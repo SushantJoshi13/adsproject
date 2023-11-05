@@ -1,18 +1,32 @@
 import { RxCross1 } from "react-icons/rx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-// import logo1 from "../../assets/Logos/latest_logo.png";
-// import { DropDownMenu } from "../../components/DropDownMenu";
 import { GiHamburgerMenu } from "react-icons/gi";
-// import { useSubmitForm } from "../../hooks/useSubmitForm";
+import axios from "axios";
 
 const Header = (props) => {
   const nav = useNavigate();
   const [isNav, setVisible] = useState(false);
-  //   const { submit } = useSubmitForm();
-  const { hideBar } = props;
-  //   const { isLoggedIn, user, signOut, isSubscribed, loading } = useAuth();
+  const [user, setUser] = useState(null);
+  // check local storage for token and then check for user
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    if (token) {
+      const result = axios({
+        method: "get",
+        url: "http://localhost:3000/user",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (result.status === 200) {
+        console.log(result);
+        setUser(result.data);
+      }
+    }
+  }, []);
 
   return (
     <div className="relative bg-main-yellow shadow-lg md:h-[20vh]">
@@ -29,7 +43,9 @@ const Header = (props) => {
                     // style={{ filter: "grayscale(1) invert(1) brightness(0.5)" }}
                   />
                 </Link> */}
-                <p className="text-2xl md:text-4xl font-poppins">Manasi Beauty Parlour</p>
+                <p className="text-2xl md:text-4xl font-poppins">
+                  Manasi Beauty Parlour
+                </p>
               </div>
               <div
                 className="text-3xl md:hidden"
@@ -50,20 +66,37 @@ const Header = (props) => {
                 <Link to="/contact-us" className="header-buttons">
                   Contact Us
                 </Link>
-                <>
-                  <Link
-                    to="/register"
-                    className="header-login-register border-2 border-transparent text-black"
-                  >
-                    Register
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="header-login-register border-2 border-transparent text-black"
-                  >
-                    Login
-                  </Link>{" "}
-                </>
+                {token == null ? (
+                  <>
+                    <Link
+                      to="/register"
+                      className="header-login-register border-2 border-transparent text-black"
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="header-login-register border-2 border-transparent text-black"
+                    >
+                      Login
+                    </Link>{" "}
+                  </>
+                ) : (
+                  <>
+                    <h1 className="header-login-register border-2 border-transparent text-black">
+                      ${user?.first_name ?? "NA"}
+                    </h1>
+                    <a
+                      className="header-login-register border-2 border-transparent text-black"
+                      onClick={() => {
+                        localStorage.removeItem("token");
+                        nav("/");
+                      }}
+                    >
+                      Logout
+                    </a>{" "}
+                  </>
+                )}
               </div>
             </div>
           </div>

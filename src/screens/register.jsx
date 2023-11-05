@@ -1,34 +1,36 @@
-// import React, { useState } from "react";
 import InputComponent from "../components/InputComponent";
-// import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
-// import { useSubmitForm } from "../hooks/useSubmitForm";
 import { useNavigate } from "react-router";
-// import logo from "../assets/Logos/NewLogo.png";
 import { RegisterValidation } from "../schemas/Validator";
+import axios from "axios";
 
 const Register = () => {
-  //   const { loading, submit } = useSubmitForm();
   const nav = useNavigate();
 
-  const Register = async (values) => {
-    const formData = new FormData();
-    formData.append("user_name", values.first_name + " " + values.last_name);
-    formData.append("email", values.email);
-    formData.append("password", values.password);
-    formData.append("confirm_password", values.confirm_password);
-    formData.append("contact_number", values.contact_number);
+  const register = async () => {
+    try {
+      const values = formik.values;
+      console.log(values);
+      const data = {
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.email,
+        contact_number: values.contact_number,
+        password: values.password,
+      };
 
-    //     const response = await submit("POST", "auth/individual", formData, {
-    //       "Content-Type": "multipart/form-data",
-    //     });
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:3000/user/register",
+        data: data,
+      });
 
-    //     if (response?.data.statusCode === 200) {
-    //       //   toast.success(response?.data?.message, toastConfig);
-    //       nav("/login");
-    //     } else {
-    //       //   toast.error(response?.data?.message, toastConfig);
-    //     }
+      if (response.status === 200) {
+        nav("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const formik = useFormik({
@@ -39,22 +41,17 @@ const Register = () => {
       password: "",
       confirm_password: "",
       contact_number: "",
-      address: "",
     },
     validationSchema: RegisterValidation,
     validateOnChange: false,
-    onSubmit: (data) => Register(data),
+    onSubmit: async () => {
+      register();
+    },
   });
   return (
     <section className="flex h-full min-h-screen items-center bg-primary p-2 font-poppins font-medium text-black">
       <div className="xs:my-0 col-span-2 mx-auto my-2 rounded-2xl bg-primary px-5 pt-3 md:w-1/2 w-full">
         <div className="container mx-auto grid grid-cols-1 items-center">
-          {/* <img
-            src={logo}
-            alt="Breeder's Association Logo"
-            className="mx-auto  flex h-20 rounded-lg md:h-44"
-          /> */}
-
           <div className="grid-cols-1 gap-5 md:grid">
             <div className="block justify-center sm:items-center">
               <h1 className="w-100 block text-2xl font-semibold text-black">
@@ -104,7 +101,7 @@ const Register = () => {
                       name="contact_number"
                       placeholder="Contact Number"
                       type="number"
-                      value={formik.values.cont_no}
+                      value={formik.values.contact_number}
                       onChange={formik.handleChange}
                       errorMessage={
                         formik.touched.contact_number
@@ -140,8 +137,9 @@ const Register = () => {
                   <button
                     type="submit"
                     className="btn-primary m-auto mt-4 flex w-full items-center justify-center rounded-md py-1 text-black"
+                    // onClick={register}
                   >
-                    {"Register"}
+                    Register
                   </button>
                 </div>
               </form>

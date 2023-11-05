@@ -3,10 +3,9 @@ import InputComponent from "../components/InputComponent";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-// import { useSubmitForm } from "../hooks/useSubmitForm";
+import axios from "axios";
 
 const Login = () => {
-  //   const { loading, submit } = useSubmitForm();
   const nav = useNavigate();
   const validationSchema = yup.object({
     email: yup
@@ -19,18 +18,37 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  var loginData;
+  const login = async () => {
+    try {
+      const values = formik.values;
+      const data = {
+        email: values.email,
+        password: values.password,
+      };
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:3000/user/login",
+        data: data,
+      });
+      if (response.status === 200) {
+        // set token in local storage
+        localStorage.setItem("token", response.data.token);
+        nav("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      loginData = {
-        email: formik.values.email,
-        password: formik.values.password,
-      };
+    validateOnChange: false,
+    onSubmit: async () => {
+      login();
     },
   });
 
@@ -81,7 +99,7 @@ const Login = () => {
                 type="submit"
                 className="btn-primary m-auto flex w-full items-center justify-center  rounded-md py-1 font-semibold text-black hover:shadow-xl"
               >
-                {"Login"}
+                Login
               </button>
               <div className="m-auto flex items-center justify-center gap-1 px-3 pt-3">
                 <div className="items-start text-xs text-black">

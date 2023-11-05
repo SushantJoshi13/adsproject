@@ -3,34 +3,46 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import InputComponent from "../../components/InputComponent";
-// import { useSubmitForm } from "../hooks/useSubmitForm";
+import axios from "axios";
 
 const AddService = () => {
-  //   const { loading, submit } = useSubmitForm();
   const nav = useNavigate();
   const validationSchema = yup.object({
-    service_name: yup
-      .string("Enter Service name")
-      .required("Service Name is required"),
-      service_cost: yup
-      .number("Enter Service Cost")
-      .required("Cost is required"),
+    name: yup.string("Enter Service name").required("Service Name is required"),
+    price: yup.number("Enter Service price").required("Price is required"),
   });
 
-  var serivceData;
   const formik = useFormik({
     initialValues: {
-      service_name: "",
-      service_cost: "",
+      name: "",
+      price: "",
     },
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
-        serivceData = {
-        service_name: formik.values.service_name,
-        service_cost: formik.values.service_cost,
-      };
+    onSubmit: async () => {
+      addService();
     },
   });
+
+  const addService = async () => {
+    try {
+      const values = formik.values;
+      console.log(values);
+      const data = {
+        name: values.name,
+        price: values.price,
+      };
+      const response = await axios({
+        method: "post",
+        url: "http://localhost:3000/beauty-service",
+        data: data,
+      });
+      if (response.status === 200) {
+        nav("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section className="flex h-screen items-center p-7 font-poppins">
@@ -40,33 +52,31 @@ const AddService = () => {
             <p className="py-3 text-black text-xl">Enter New Service Details</p>
             <form onSubmit={formik.handleSubmit}>
               <InputComponent
-                id="service_name"
-                name="service_name"
+                id="name"
+                name="name"
                 type="text"
                 label="Service Name"
                 placeholder="New Service Name"
-                value={formik.values.service_name}
+                value={formik.values.name}
                 onChange={formik.handleChange}
-                errorMessage={formik.touched.service_name ? formik.errors.service_name : ""}
+                errorMessage={formik.touched.name ? formik.errors.name : ""}
               />
 
               <InputComponent
-                id="service_cost"
-                name="service_cost"
+                id="price"
+                name="price"
                 type="number"
-                label="Service Cost"
-                placeholder="Cost"
-                value={formik.values.service_cost}
+                label="Service price"
+                placeholder="price"
+                value={formik.values.price}
                 onChange={formik.handleChange}
-                errorMessage={
-                  formik.touched.service_cost ? formik.errors.service_cost : ""
-                }
+                errorMessage={formik.touched.price ? formik.errors.price : ""}
               />
               <button
                 type="submit"
                 className="btn-primary mt-2 flex w-full items-center justify-center  rounded-md py-1 font-semibold text-black hover:shadow-xl"
               >
-                {"Add New Service"}
+                Add New Service
               </button>
             </form>
           </div>
