@@ -2,15 +2,26 @@ import InputComponent from "../components/InputComponent";
 import { useFormik } from "formik";
 
 const AppointmentPage = () => {
+  const validationSchema = yup.object({
+    date: yup.date("Select your date").required("Email is required"),
+    time: yup.number("Select your time").required("Time is required"),
+    service: yup.string("Select service").required("Service is required"),
+  });
+
+  var appointmentData;
   const formik = useFormik({
     initialValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
-      confirm_password: "",
-      contact_no: "",
-      address: "",
+      date: "",
+      time: "",
+      service: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      appointmentData = {
+        date: formik.values.date,
+        time: formik.values.time,
+        service: formik.values.service,
+      };
     },
   });
   return (
@@ -40,14 +51,14 @@ const AppointmentPage = () => {
                         {"Select the Time"}
                       </label>
                       <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-black shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
-                        <option>{"Select a time slot"}</option>
-                        <option>{"10AM - 11AM"}</option>
-                        <option>{"11AM - 12Noon"}</option>
-                        <option>{"12Noon - 1PM"}</option>
-                        <option>{"3PM - 4PM"}</option>
-                        <option>{"4PM - 5PM"}</option>
-                        <option>{"5PM - 6PM"}</option>
-                        <option>{"6PM - 7PM"}</option>
+                        <option value="">{"Select a time slot"}</option>
+                        <option value={10}>{"10AM - 11AM"}</option>
+                        <option value={11}>{"11AM - 12Noon"}</option>
+                        <option value={12}>{"12Noon - 1PM"}</option>
+                        <option value={3}>{"3PM - 4PM"}</option>
+                        <option value={4}>{"4PM - 5PM"}</option>
+                        <option value={5}>{"5PM - 6PM"}</option>
+                        <option value={6}>{"6PM - 7PM"}</option>
                       </select>
                     </div>
                     <div className="flex flex-col">
@@ -55,12 +66,12 @@ const AppointmentPage = () => {
                         {"Select the Service"}
                       </label>
                       <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-black shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
-                        <option>{"Select any service"}</option>
-                        <option>{"Haircut"}</option>
-                        <option>{"Threading"}</option>
-                        <option>{"Waxing"}</option>
-                        <option>{"Hairstyle"}</option>
-                        <option>{"Occasion Makeup"}</option>
+                        <option value={""}>{"Select any service"}</option>
+                        <option value={"haircut"}>{"Haircut"}</option>
+                        <option value={"threadingv"}>{"Threading"}</option>
+                        <option value={"waxing"}>{"Waxing"}</option>
+                        <option value={"hairstyle"}>{"Hairstyle"}</option>
+                        <option value={"makeup"}>{"Occasion Makeup"}</option>
                       </select>
                     </div>
                   </div>

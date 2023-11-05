@@ -15,10 +15,9 @@ const Register = () => {
     const formData = new FormData();
     formData.append("user_name", values.first_name + " " + values.last_name);
     formData.append("email", values.email);
-    formData.append("user_role_id", values.isFemale ? 1 : 2);
     formData.append("password", values.password);
     formData.append("confirm_password", values.confirm_password);
-    formData.append("contact_no", values.contact_no);
+    formData.append("contact_number", values.contact_number);
 
     //     const response = await submit("POST", "auth/individual", formData, {
     //       "Content-Type": "multipart/form-data",
@@ -39,7 +38,7 @@ const Register = () => {
       email: "",
       password: "",
       confirm_password: "",
-      contact_no: "",
+      contact_number: "",
       address: "",
     },
     validationSchema: RegisterValidation,
@@ -101,15 +100,15 @@ const Register = () => {
                       }
                     />
                     <InputComponent
-                      id="contact_no"
-                      name="contact_no"
+                      id="contact_number"
+                      name="contact_number"
                       placeholder="Contact Number"
                       type="number"
                       value={formik.values.cont_no}
                       onChange={formik.handleChange}
                       errorMessage={
-                        formik.touched.contact_no
-                          ? formik.errors.contact_no
+                        formik.touched.contact_number
+                          ? formik.errors.contact_number
                           : ""
                       }
                     />
