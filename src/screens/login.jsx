@@ -53,8 +53,8 @@ const Login = () => {
   });
 
   return (
-    <section className="flex h-screen items-center p-7 font-poppins">
-      <div className="mx-auto h-auto rounded-2xl bg-primary py-8 sm:w-3/4 sm:px-8 md:w-3/4 md:px-10 lg:w-5/12">
+    <section className="bg-light flex h-screen items-center p-7 font-poppins">
+      <div className="mx-auto h-auto rounded-2xl bg-white py-8 sm:w-3/4 sm:px-8 md:w-3/4 md:px-10 lg:w-5/12">
         <div className="grid-cols-1 gap-5 md:grid">
           <div className="block justify-center sm:items-center">
             <h1 className="w-100 block text-2xl font-semibold text-black">
@@ -107,7 +107,7 @@ const Login = () => {
                 </div>
                 <button
                   onClick={() => nav("/register")}
-                  className="items-end text-base font-bold text-red-500 underline"
+                  className="items-end text-base font-bold text-dark underline"
                 >
                   Register
                 </button>

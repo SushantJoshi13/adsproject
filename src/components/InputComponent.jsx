@@ -18,7 +18,7 @@ const InputComponent = ({
   return (
     <div className="flex flex-col">
       <label
-        className={` mt-4 text-sm font-medium text-black ${
+        className={` mt-4 text-sm font-semibold text-black ${
           !!className && className
         }`}
         style={!!style ? style : {}}
@@ -28,7 +28,7 @@ const InputComponent = ({
       <input
         variant="standard"
         type={passwordVisibility ? "text" : type}
-        className={`my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-black shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14 ${
+        className={`my-2 h-12 w-full font-medium rounded-lg border-2 bg-transparent px-3 py-3 text-dark shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14 ${
           !!className && className
         }`}
         id={id}

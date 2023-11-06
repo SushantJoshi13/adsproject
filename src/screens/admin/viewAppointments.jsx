@@ -23,7 +23,7 @@ const ViewAppointments = () => {
   }, []);
   return (
     <section>
-      <div className="m-5 border-2 rounded-xl font-poppins p-5">
+      <div className="bg-light m-5 border-2 rounded-xl font-poppins p-5 text-dark">
         <p className="px-2 py-5 font-semibold">
           Hi Manasi! Please Review your appointments
         </p>

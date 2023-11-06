@@ -38,28 +38,28 @@ const Home = () => {
         <section className="mx-5 md:mx-20">
           <div className="flex flex-col gap-11 md:flex-row">
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mt-5">
-              <div className="card group transform rounded-lg rounded-bl-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
+              <div className="card group transform rounded-lg rounded-bl-lg bg-lightest p-7 shadow-lg duration-300 hover:bg-light hover:text-dark">
                 <h1 className="pb-4 text-lg font-medium">One Stop Beauty</h1>
                 <p className="pb-5">
                   Experience a Beauty Retreat. Everything you need from hair to
                   skin to fashion, by Indy's best of the best-all at your MDG
                   Salon.
                 </p>
-                <button className="text-lg font-medium text-main-yellow group-hover:text-white">
+                <button className="text-lg font-medium text-main-yellow group-hover:text-dark">
                   Read More
                 </button>
               </div>
-              <div className="card group transform rounded-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
+              <div className="card group transform rounded-lg bg-white p-7 shadow-lg duration-300 hover:bg-light hover:text-dark">
                 <h1 className="pb-4 text-lg font-medium">Branded Products</h1>
                 <p className="pb-5">
                   Achieve salon style at home. High quality products. By high
                   quality companies such as Barva.
                 </p>
-                <button className="text-lg font-medium text-main-yellow group-hover:text-white">
+                <button className="text-lg font-medium text-main-yellow group-hover:text-dark">
                   Read More
                 </button>
               </div>
-              <div className="card group transform rounded-lg rounded-br-lg bg-white p-7 shadow-lg duration-300 hover:bg-main-yellow hover:text-white">
+              <div className="card group transform rounded-lg rounded-br-lg bg-white p-7 shadow-lg duration-300 hover:bg-light hover:text-dark">
                 <h1 className="pb-4 text-lg font-medium">
                   Premium Hair Styles
                 </h1>
@@ -70,7 +70,7 @@ const Home = () => {
                 </p>
                 <button
                   onClick={() => nav("/education")}
-                  className="text-lg font-medium text-main-yellow group-hover:text-white"
+                  className="text-lg font-medium text-main-yellow group-hover:text-dark"
                 >
                   Read More
                 </button>
@@ -113,7 +113,12 @@ const Home = () => {
         {/* <NewFooter /> */}
       </div>
       <div className="flex">
-        <button className="w-1/2 mx-auto" onClick={() => nav("/appointment")}>{"Book your Appointment"}</button>
+        <button
+          className="btn-primary w-1/2 mx-auto my-5 text-dark"
+          onClick={() => nav("/appointment")}
+        >
+          {"Book your Appointment"}
+        </button>
       </div>
     </section>
   );

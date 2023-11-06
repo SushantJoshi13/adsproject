@@ -26,8 +26,8 @@ const AppointmentPage = () => {
     },
   });
   return (
-    <section className="flex h-full min-h-screen items-center bg-primary p-2 font-poppins font-medium text-black">
-      <div className="xs:my-0 col-span-2 mx-auto my-2 rounded-2xl bg-primary px-5 pt-3 md:w-3/4 w-full">
+    <section className="flex h-full min-h-screen  p-2 font-poppins font-medium text-dark bg-light">
+      <div className="xs:my-0 mx-auto rounded-2xl px-5 pt-3 md:w-3/4 w-full">
         <div className="container mx-auto grid grid-cols-1 items-center">
           {/* <img
             src={logo}
@@ -35,12 +35,12 @@ const AppointmentPage = () => {
             className="mx-auto  flex h-20 rounded-lg md:h-44"
           /> */}
 
-          <div className="grid-cols-1 gap-5 md:grid">
-            <div className="block justify-center sm:items-center">
-              <p className="pt-3 text-black">Please fill your details</p>
+          <div className="grid-cols-1 gap-5 md:grid bg-lightest rounded-xl">
+            <div className="block justify-center sm:items-center p-5 rounded-xl">
+              <p className="pt-3 text-dark font-bold">Please fill your details</p>
               <form onSubmit={formik.handleSubmit}>
                 <div className="my-4">
-                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-5 rounded-xl">
                     <InputComponent
                       id="appointment_date"
                       name="appointment_date"
@@ -48,10 +48,10 @@ const AppointmentPage = () => {
                       type="date"
                     />
                     <div className="flex flex-col">
-                      <label className="mt-4 text-sm font-medium text-black">
+                      <label className="mt-4 text-sm font-semibold text-dark">
                         {"Select the Time"}
                       </label>
-                      <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-black shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
+                      <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-dark shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
                         <option value="">{"Select a time slot"}</option>
                         <option value={10}>{"10AM - 11AM"}</option>
                         <option value={11}>{"11AM - 12Noon"}</option>
@@ -63,10 +63,10 @@ const AppointmentPage = () => {
                       </select>
                     </div>
                     <div className="flex flex-col">
-                      <label className="mt-4 text-sm font-medium text-black">
+                      <label className="mt-4 text-sm font-semibold text-dark">
                         {"Select the Service"}
                       </label>
-                      <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-black shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
+                      <select className="my-2 h-12 w-full rounded-lg border-2 bg-transparent px-3 py-3 text-dark shadow-md outline-2 hover:shadow-xl hover:outline-none md:h-14">
                         <option value={""}>{"Select any service"}</option>
                         <option value={"haircut"}>{"Haircut"}</option>
                         <option value={"threadingv"}>{"Threading"}</option>
@@ -78,7 +78,7 @@ const AppointmentPage = () => {
                   </div>
                   <button
                     type="submit"
-                    className="btn-primary m-auto mt-4 flex w-full items-center justify-center rounded-md py-1 text-black"
+                    className="btn-primary m-auto mt-4 flex w-full items-center justify-center rounded-md py-1 text-dark"
                   >
                     {"Request Appointment"}
                   </button>

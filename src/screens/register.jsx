@@ -49,8 +49,8 @@ const Register = () => {
     },
   });
   return (
-    <section className="flex h-full min-h-screen items-center bg-primary p-2 font-poppins font-medium text-black">
-      <div className="xs:my-0 col-span-2 mx-auto my-2 rounded-2xl bg-primary px-5 pt-3 md:w-1/2 w-full">
+    <section className="flex h-full min-h-screen items-center bg-light p-2 font-poppins font-semibold text-black">
+      <div className="xs:my-0 col-span-2 mx-auto my-2 rounded-2xl bg-white px-5 pt-3 md:w-1/2 w-full">
         <div className="container mx-auto grid grid-cols-1 items-center">
           <div className="grid-cols-1 gap-5 md:grid">
             <div className="block justify-center sm:items-center">
@@ -145,12 +145,12 @@ const Register = () => {
               </form>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-center gap-1 md:h-min">
+          <div className="my-6 flex items-center justify-center gap-1 md:h-min">
             <div className="text-sm text-slate-300 md:text-base">
               Already a user?{" "}
             </div>
             <button
-              className="cursor-pointer items-end text-base font-bold text-red-500 underline"
+              className="cursor-pointer items-end text-base font-bold text-dark underline"
               onClick={() => nav("/login")}
             >
               Login

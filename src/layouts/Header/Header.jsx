@@ -29,7 +29,7 @@ const Header = (props) => {
   }, []);
 
   return (
-    <div className="relative bg-main-yellow shadow-lg md:h-[20vh]">
+    <div className="relative bg-light text-dark shadow-lg md:h-[20vh]">
       <div className="mx-5 block">
         <header className="sticky top-0 z-50 w-full bg-main-yellow">
           <div className="px- flex flex-col  items-center justify-between py-2 sm:items-center sm:justify-between sm:space-y-0">
@@ -43,7 +43,7 @@ const Header = (props) => {
                     // style={{ filter: "grayscale(1) invert(1) brightness(0.5)" }}
                   />
                 </Link> */}
-                <p className="text-2xl md:text-4xl font-poppins">
+                <p className="text-2xl md:text-4xl font-poppins font-bold my-2">
                   Manasi Beauty Parlour
                 </p>
               </div>
@@ -70,24 +70,24 @@ const Header = (props) => {
                   <>
                     <Link
                       to="/register"
-                      className="header-login-register border-2 border-transparent text-black"
+                      className="header-login-register border-2 border-transparent"
                     >
                       Register
                     </Link>
                     <Link
                       to="/login"
-                      className="header-login-register border-2 border-transparent text-black"
+                      className="header-login-register border-2 border-transparent"
                     >
                       Login
                     </Link>{" "}
                   </>
                 ) : (
                   <>
-                    <h1 className="header-login-register border-2 border-transparent text-black">
+                    <h1 className="header-login-register border-2 border-transparent ">
                       ${user?.first_name ?? "NA"}
                     </h1>
                     <a
-                      className="header-login-register border-2 border-transparent text-black"
+                      className="header-login-register border-2 border-transparent "
                       onClick={() => {
                         localStorage.removeItem("token");
                         nav("/");

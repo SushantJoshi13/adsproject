@@ -5,7 +5,7 @@ import { MdEmail, MdLocationOn, MdWhatsapp } from "react-icons/md";
 const Footer = () => {
   return (
     <footer>
-      <div className="h-full w-full bg-main-yellow py-5">
+      <div className="h-full w-full bg-light py-5">
         <div className="flex flex-col items-center justify-center gap-5 ">
           <div>
             {/* <img
@@ -30,26 +30,25 @@ const Footer = () => {
           </div>
           <div className="flex flex-col items-center gap-5 px-4 md:px-10 lg:flex-row">
             <a href="mailto:genuinebreederassociation@gmail.com">
-              <p className="flex cursor-pointer items-center text-xs text-white md:text-base">
+              <p className="flex cursor-pointer items-center text-xs text-dark md:text-base">
                 <MdEmail className="text-2xl xs:text-base" />
-                genuinebreederassociation@gmail.com
+                mansi.hk14@gmail.com
               </p>
             </a>
-            <a href="https://wa.me/+918956643978">
-              <p className="flex cursor-pointer items-center text-xs text-white md:text-base">
+            <a href="https://wa.me/+918788716897">
+              <p className="flex cursor-pointer items-center text-xs text-dark md:text-base">
                 <MdWhatsapp className="text-2xl xs:text-base" />
-                +91 89566 43978
+                +91 87887 16897
               </p>
             </a>
             <a
               target="_blank"
               rel="noreferrer"
-              href="http://maps.google.com/?q=M6MH+9R, Nimgaon Mhalungi, Maharashtra"
+              href="https://maps.app.goo.gl/sJoKJG5qURMyN61S8"
             >
-              <p className="flex cursor-pointer items-center text-center text-xs text-white md:text-base">
+              <p className="flex cursor-pointer items-center text-center text-xs text-dark md:text-base">
                 <MdLocationOn className="text-3xl xs:text-base" />
-                Sr no, 12/1, B RAMLILA, LANE NO 3, Adarsh Nagar, Wadgaon Sheri,
-                Pune, Maharashtra 411014
+                54/4, LIG Colony Rd, LIG Colony, Pradhikaran, Nigdi, Pimpri-Chinchwad, Maharashtra 411044
               </p>
             </a>
           </div>
