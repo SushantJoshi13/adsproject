@@ -36,7 +36,7 @@ const AppointmentCard = ({ id, name, service, date, time, status }) => {
     }
   };
   return (
-    <div className="px-5 font-poppins border-2 rounded-xl w-full">
+    <div className="px-5 font-poppins border-2 rounded-xl w-full bg-lightest">
       <p className="py-1">{"Name: " + name}</p>
       <p className="py-1">{"Service: " + service}</p>
       <p className="py-1">{"Date: " + date}</p>

@@ -12,20 +12,24 @@ const Header = (props) => {
   // check local storage for token and then check for user
   const token = localStorage.getItem("token");
   useEffect(() => {
-    if (token) {
-      const result = axios({
-        method: "get",
-        url: "http://localhost:3000/user",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (result.status === 200) {
-        console.log(result);
-        setUser(result.data);
+    const getUser = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: "http://localhost:3000/user",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(response.data);
+        if (response.status === 200) {
+          setUser(response.data);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    }
+    };
+    getUser();
   }, []);
 
   return (
@@ -35,15 +39,7 @@ const Header = (props) => {
           <div className="px- flex flex-col  items-center justify-between py-2 sm:items-center sm:justify-between sm:space-y-0">
             <div className="flex w-full items-center justify-between">
               <div className="h-8 md:h-24 mx-auto">
-                {/* <Link to="/" className="text-gray-800">
-                  <img
-                    alt="logo"
-                    src={""}
-                    className="h-[10vh] rounded-lg object-center md:h-[15vh] "
-                    // style={{ filter: "grayscale(1) invert(1) brightness(0.5)" }}
-                  />
-                </Link> */}
-                <p className="text-2xl md:text-4xl font-poppins font-bold my-2">
+                <p className="text-2xl md:text-4xl font-poppins">
                   Manasi Beauty Parlour
                 </p>
               </div>
@@ -83,7 +79,7 @@ const Header = (props) => {
                   </>
                 ) : (
                   <>
-                    <h1 className="header-login-register border-2 border-transparent ">
+                    <h1 className="header-login-register border-2 border-transparent text-black">
                       ${user?.first_name ?? "NA"}
                     </h1>
                     <a

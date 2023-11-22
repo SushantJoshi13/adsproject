@@ -33,7 +33,8 @@ const Login = () => {
       if (response.status === 200) {
         // set token in local storage
         localStorage.setItem("token", response.data.token);
-        nav("/");
+        if (response.data?.user?.email == "mansi@gmail.com") nav("/admin");
+        else nav("/");
       }
     } catch (error) {
       console.log(error);

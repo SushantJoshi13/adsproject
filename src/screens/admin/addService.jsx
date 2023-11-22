@@ -45,8 +45,8 @@ const AddService = () => {
   };
 
   return (
-    <section className="flex h-screen items-center p-7 font-poppins">
-      <div className="mx-auto h-auto rounded-2xl bg-primary py-8 sm:w-3/4 sm:px-8 md:w-3/4 md:px-10 lg:w-5/12">
+    <section className="bg-light flex h-screen items-center p-7 font-poppins">
+      <div className="mx-auto h-auto rounded-2xl bg-lightest py-8 sm:w-3/4 sm:px-8 md:w-3/4 md:px-10 lg:w-5/12">
         <div className="grid-cols-1 gap-5 md:grid">
           <div className="block justify-center sm:items-center">
             <p className="py-3 text-black text-xl">Enter New Service Details</p>
@@ -67,7 +67,7 @@ const AddService = () => {
                 name="price"
                 type="number"
                 label="Service price"
-                placeholder="price"
+                placeholder="Price"
                 value={formik.values.price}
                 onChange={formik.handleChange}
                 errorMessage={formik.touched.price ? formik.errors.price : ""}
