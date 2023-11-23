@@ -6,6 +6,8 @@ import Home from "../screens/home";
 import AppointmentPage from "../screens/appointmentPage";
 import ViewAppointments from "../screens/admin/viewAppointments";
 import AddService from "../screens/admin/addService";
+import ContactUs from "../screens/ContactUs";
+
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -38,5 +40,13 @@ export const appRouter = createBrowserRouter([
   {
     path: "/addService",
     element: <AddService />,
+  },
+  {
+    path: "/contact-us",
+    element: (
+      <Layout>
+        <ContactUs />
+      </Layout>
+    ),
   },
 ]);

@@ -38,8 +38,8 @@ const Header = (props) => {
         <header className="sticky top-0 z-50 w-full bg-main-yellow">
           <div className="px- flex flex-col  items-center justify-between py-2 sm:items-center sm:justify-between sm:space-y-0">
             <div className="flex w-full items-center justify-between">
-              <div className="h-8 md:h-24 mx-auto">
-                <p className="text-2xl md:text-4xl font-poppins">
+              <div className="h-8 md:h-24 mx-auto cursor-pointer" onClick={() => nav("/")}>
+                <p className="text-2xl md:text-4xl font-poppins font-bold">
                   Manasi Beauty Parlour
                 </p>
               </div>
@@ -51,7 +51,7 @@ const Header = (props) => {
               </div>
             </div>
             <div className="-bottom-5 hidden w-full rounded-xl p-4 px-5 md:absolute md:flex">
-              <div className="hidden mx-auto justify-between space-y-4 sm:items-center sm:space-y-0 md:flex w-3/4">
+              <div className="hidden mx-auto justify-between space-y-4 sm:items-center sm:space-y-0 md:flex w-3/4 font-bold font-poppins">
                 <Link to="/about" className="header-buttons">
                   About Us
                 </Link>

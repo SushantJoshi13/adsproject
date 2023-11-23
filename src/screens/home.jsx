@@ -16,25 +16,6 @@ const Home = () => {
         {/* <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full bg-fixed backdrop-brightness-[40%]"></div> */}
       </div>
       <div className="">
-        <div className="flex items-center  ">
-          <div className="absolute top-0 mx-20 flex flex-col gap-4 sm:top-5 md:top-28">
-            <div>
-              <h1
-                className="text-center text-4xl font-bold text-white sm:text-left md:text-7xl "
-                style={{
-                  fontFamily: "cursive",
-                }}
-              >
-                Your pet, <br /> our priority
-              </h1>
-            </div>
-            <div className="flex justify-center sm:block">
-              <button className="rounded-lg bg-main-yellow px-5 py-3 text-white transition-all duration-300 hover:bg-secondary">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
         <section className="mx-5 md:mx-20">
           <div className="flex flex-col gap-11 md:flex-row">
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mt-5">
